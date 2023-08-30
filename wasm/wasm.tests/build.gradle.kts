@@ -82,6 +82,7 @@ val jsShellDirectory = "https://archive.mozilla.org/pub/firefox/nightly/2023/04/
 val jsShellSuffix = when (currentOsType) {
     OsType(OsName.LINUX, OsArch.X86_32) -> "linux-i686"
     OsType(OsName.LINUX, OsArch.X86_64) -> "linux-x86_64"
+    OsType(OsName.LINUX, OsArch.ARM64) -> "linux-arm64"
     OsType(OsName.MAC, OsArch.X86_64),
     OsType(OsName.MAC, OsArch.ARM64) -> "mac"
     OsType(OsName.WINDOWS, OsArch.X86_32) -> "win32"

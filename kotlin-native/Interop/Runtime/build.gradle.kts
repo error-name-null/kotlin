@@ -61,7 +61,8 @@ tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().configureEach 
             "-opt-in=kotlin.ExperimentalUnsignedTypes",
             "-opt-in=kotlinx.cinterop.BetaInteropApi",
             "-opt-in=kotlinx.cinterop.ExperimentalForeignApi",
-            "-Xskip-prerelease-check"
+            "-Xskip-prerelease-check",
+//            "-Xllvm-variant=/home/monkey/SourceCode/kotlin/kotlin-native/tools/llvm_builder/llvm-distribution",
         )
     }
 }

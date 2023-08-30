@@ -15,7 +15,11 @@ plugins {
 
 tasks.named<KotlinCompile>("compileKotlin") {
     kotlinOptions {
-        freeCompilerArgs += listOf("-Xskip-metadata-version-check")
+        freeCompilerArgs += listOf(
+            "-Xskip-metadata-version-check",
+//            "-Xllvm-variant=/home/monkey/SourceCode/kotlin/kotlin-native/tools/llvm_builder/llvm-distribution",
+        )
+
     }
 }
 

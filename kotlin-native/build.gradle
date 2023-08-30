@@ -723,6 +723,9 @@ task "checkStdlibAbiCompatibility"(type: CompareDistributionSignatures) {
 String platformName(KonanTarget target) {
     def result
     switch (target) {
+//        case KonanTarget.LINUX_ARM64:
+//            result ="linux-arm64"
+//            break
         case KonanTarget.LINUX_X64:
             result ="linux-x86_64"
             break

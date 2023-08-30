@@ -39,7 +39,9 @@ compileCompilerKotlin {
             '-opt-in=org.jetbrains.kotlin.ir.ObsoleteDescriptorBasedAPI',
             "-opt-in=kotlinx.cinterop.BetaInteropApi",
             "-opt-in=kotlinx.cinterop.ExperimentalForeignApi",
-            '-Xskip-prerelease-check']
+            '-Xskip-prerelease-check',
+//            "-Xllvm-variant=/home/monkey/SourceCode/kotlin/kotlin-native/tools/llvm_builder/llvm-distribution",
+    ]
 }
 
 compileCli_bcKotlin {

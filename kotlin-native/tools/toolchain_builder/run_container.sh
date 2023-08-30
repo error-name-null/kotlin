@@ -1,11 +1,14 @@
 #!/bin/bash
 set -eou pipefail
 
+echo $1
+echo $2
+
 CONTAINER_NAME=kotlin-toolchain-builder
 IMAGE_NAME=kotlin-toolchain-builder
 TARGET=$1
 VERSION=$2
-TOOLCHAIN_VERSION_SUFFIX="${3:-""}"
+TOOLCHAIN_VERSION_SUFFIX="${2:-""}"
 
 docker ps -a | grep $CONTAINER_NAME > /dev/null \
   && docker stop $CONTAINER_NAME > /dev/null \

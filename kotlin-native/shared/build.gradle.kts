@@ -56,7 +56,10 @@ tasks.withType<KotlinCompile>().configureEach {
         apiVersion = "1.4"
         allWarningsAsErrors = false
         jvmTarget = "1.8"
-        freeCompilerArgs += "-Xskip-prerelease-check"
+        freeCompilerArgs += listOf(
+            "-Xskip-prerelease-check",
+//            "-Xllvm-variant=/home/monkey/SourceCode/kotlin/kotlin-native/tools/llvm_builder/llvm-distribution",
+        )
     }
 }
 

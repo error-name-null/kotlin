@@ -169,6 +169,7 @@ tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().configureEach 
                 "-Xskip-prerelease-check",
                 "-opt-in=kotlinx.cinterop.BetaInteropApi",
                 "-opt-in=kotlinx.cinterop.ExperimentalForeignApi",
+//                "-Xllvm-variant=/home/monkey/SourceCode/kotlin/kotlin-native/tools/llvm_builder/llvm-distribution",
         )
 
     }

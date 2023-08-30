@@ -47,7 +47,8 @@ tasks {
         kotlinOptions {
             freeCompilerArgs += listOf(
                 "-opt-in=kotlin.ExperimentalUnsignedTypes",
-                "-Xskip-metadata-version-check"
+                "-Xskip-metadata-version-check",
+//                "-Xllvm-variant=/home/monkey/SourceCode/kotlin/kotlin-native/tools/llvm_builder/llvm-distribution",
             )
         }
     }

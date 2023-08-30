@@ -6,14 +6,21 @@ TARGET=$1
 VERSION=$2
 TOOLCHAIN_VERSION_SUFFIX=$3
 HOME=/home/ct
-ZLIB_VERSION=1.2.11
+ZLIB_VERSION=1.3
 
 build_toolchain() {
+  echo "Start" > /artifacts/fred.txt
+  ls -l $HOME
+  rm -rf $HOME/build-"$TARGET"
   mkdir $HOME/build-"$TARGET"
   cd $HOME/build-"$TARGET"
   cp $HOME/toolchains/"$TARGET"/"$VERSION".config .config
+  echo "Before" >> /artifacts/fred.txt
   ct-ng build
+  echo "After" >> /artifacts/fred.txt
+  find . -name "build.log" -exec cp {} /artifacts/ \;
   cd ..
+  echo "End" >> /artifacts/fred.txt
 }
 
 build_zlib() {
@@ -29,7 +36,11 @@ build_zlib() {
   ./configure \
   --prefix="$INSTALL_PATH"
 
-  make && make install
+  make
+  chmod u+w /home/ct/x-tools/aarch64-unknown-linux-gnu/aarch64-unknown-linux-gnu/sysroot/usr/share
+  chmod u+w /home/ct/x-tools/aarch64-unknown-linux-gnu/aarch64-unknown-linux-gnu/sysroot/usr/lib
+  chmod u+w /home/ct/x-tools/aarch64-unknown-linux-gnu/aarch64-unknown-linux-gnu/sysroot/usr/include
+  make install
 }
 
 build_archive() {
@@ -51,3 +62,8 @@ echo "building toolchain for $TARGET"
 build_toolchain
 build_zlib
 build_archive
+
+/bin/bash
+
+#find . -name "build.log" -exec cp {} /artifacts/ \;
+#echo "Steve2" > /artifacts/fred.txt

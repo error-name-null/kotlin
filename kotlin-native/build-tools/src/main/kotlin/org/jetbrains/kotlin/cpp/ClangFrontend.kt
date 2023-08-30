@@ -192,6 +192,17 @@ abstract class ClangFrontend : DefaultTask() {
     @TaskAction
     fun compile() {
         val workQueue = workerExecutor.noIsolation()
+        getLogger().quiet("STEVE!!! Verifying compiler '{}'", this.compiler)
+        getLogger().quiet("STEVE!!! Verifying headers '{}'", this.headers.get())
+        getLogger().quiet("STEVE!!! Verifying compilerFlags '{}'", this.compilerFlags.get())
+        getLogger().quiet("STEVE!!! Verifying headersDirs '{}'", this.headersDirs.getFiles())
+        getLogger().quiet("STEVE!!! Verifying arguments '{}'", this.arguments.get())
+        getLogger().quiet("STEVE!!! Verifying inputFiles '{}'", this.inputFiles)
+        getLogger().quiet("STEVE!!! Verifying wd '{}'", this.workingDirectory)
+        getLogger().quiet("STEVE!!! Verifying wdPath '{}'", this.workingDirectoryPath.get())
+        getLogger().quiet("STEVE!!! Verifying llvmHome '{}'", this.platformManager.hostPlatform.llvmHome)
+        getLogger().quiet("STEVE!!! Verifying clangPaths '{}'", this.platformManager.hostPlatform.clang.clangPaths)
+        getLogger().quiet("STEVE!!! Verifying targetName '{}'", this.targetName.get())
 
         workUnits.get().forEach { workUnit ->
             workQueue.submit(ClangFrontendJob::class.java) {
