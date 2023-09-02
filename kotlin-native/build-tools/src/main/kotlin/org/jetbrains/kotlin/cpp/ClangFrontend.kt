@@ -191,7 +191,6 @@ abstract class ClangFrontend : DefaultTask() {
 
     @TaskAction
     fun compile() {
-        val workQueue = workerExecutor.noIsolation()
         getLogger().quiet("STEVE!!! Verifying compiler '{}'", this.compiler)
         getLogger().quiet("STEVE!!! Verifying headers '{}'", this.headers.get())
         getLogger().quiet("STEVE!!! Verifying compilerFlags '{}'", this.compilerFlags.get())
@@ -203,6 +202,7 @@ abstract class ClangFrontend : DefaultTask() {
         getLogger().quiet("STEVE!!! Verifying llvmHome '{}'", this.platformManager.hostPlatform.llvmHome)
         getLogger().quiet("STEVE!!! Verifying clangPaths '{}'", this.platformManager.hostPlatform.clang.clangPaths)
         getLogger().quiet("STEVE!!! Verifying targetName '{}'", this.targetName.get())
+        val workQueue = workerExecutor.noIsolation()
 
         workUnits.get().forEach { workUnit ->
             workQueue.submit(ClangFrontendJob::class.java) {
