@@ -192,7 +192,7 @@ abstract class ClangFrontend : DefaultTask() {
     @TaskAction
     fun compile() {
         getLogger().quiet("STEVE!!! Verifying compiler '{}'", this.compiler)
-        getLogger().quiet("STEVE!!! Verifying headers '{}'", this.headers.get())
+//        getLogger().quiet("STEVE!!! Verifying headers '{}'", this.headers.get())
         getLogger().quiet("STEVE!!! Verifying compilerFlags '{}'", this.compilerFlags.get())
         getLogger().quiet("STEVE!!! Verifying headersDirs '{}'", this.headersDirs.getFiles())
         getLogger().quiet("STEVE!!! Verifying arguments '{}'", this.arguments.get())
